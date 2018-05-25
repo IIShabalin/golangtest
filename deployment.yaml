@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: golangtest-deployment
+  labels:
+    app: golangtest
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: golangtest
+  template:
+    metadata:
+      labels:
+        app: golangtest
+    spec:
+      containers:
+      - name: golangtest
+        image: golangtest:latest
+        ports:
+        - containerPort: 8080
